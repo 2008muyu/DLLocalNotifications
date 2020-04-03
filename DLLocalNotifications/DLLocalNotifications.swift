@@ -138,6 +138,8 @@ public class DLNotificationScheduler {
                 newComponents = Calendar.current.dateComponents([.hour, .minute], from: notification.fireDate!)
             case .weekly:
                 newComponents = Calendar.current.dateComponents([.hour, .minute, .weekday], from: notification.fireDate!)
+            case .quarter:
+                newComponents = Calendar.current.dateComponents([.hour, .minute, .quarter], from: notification.fireDate!)
             case .monthly:
                 newComponents = Calendar.current.dateComponents([.hour, .minute, .day], from: notification.fireDate!)
             case .yearly:
@@ -306,7 +308,7 @@ public class DLNotificationScheduler {
 // Repeating Interval Times
 
 public enum RepeatingInterval: String {
-    case none, minute, hourly, daily, weekly, monthly, yearly
+    case none, minute, hourly, daily, weekly, quarter, monthly, yearly
 }
 
 extension Date {
